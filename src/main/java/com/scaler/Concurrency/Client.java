@@ -31,12 +31,16 @@ public class Client {
         ExecutorService executor = Executors.newCachedThreadPool();
 
         for (int i = 1; i <= 1000000; i++) {
-            executor.execute(new NumberPrinter(i));
+            executor.execute(new NumberPrinter(i)); // printNumber(i)
             if(i == 6000){
                 System.out.println("DEBUG");
             }
         }
         executor.shutdown(); // 2 siblings(variations) - shutdownNow, asyncTermination
 
+    }
+
+    void printNumber(int i){
+        System.out.println("Printing number " + i);
     }
 }

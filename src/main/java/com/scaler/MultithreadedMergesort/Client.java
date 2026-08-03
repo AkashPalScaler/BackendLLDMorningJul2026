@@ -12,7 +12,9 @@ public class Client {
         List<Integer> mainArrToSort = List.of(5,3,1,4,8,2,3,9,10);
         ExecutorService pool = Executors.newCachedThreadPool();
         Future<List<Integer>> sortedArrFuture = pool.submit(new MergeSort(mainArrToSort, pool));
+        // main
         List<Integer> sortedArr = sortedArrFuture.get();
         System.out.println(sortedArr);
     }
 }
+// mergeSort(mainArrToSort)

@@ -18,6 +18,7 @@ public class MergeSort implements Callable<List<Integer>> {
     @Override
     public List<Integer> call() throws Exception {
         if(arrToSort.size() == 1) {
+            System.out.println("reached base case");
             return arrToSort;
         }
         List<Integer> leftArr = new ArrayList<>();
@@ -32,10 +33,10 @@ public class MergeSort implements Callable<List<Integer>> {
             rightArr.add(arrToSort.get(i));
         }
 
-        Future<List<Integer>> leftSortedArrayFuture = pool.submit(new MergeSort(leftArr, pool));
+        Future<List<Integer>> leftSortedArrayFuture = pool.submit(new MergeSort(leftArr, pool)); // mergeSort(leftArr)
         Future<List<Integer>> rightSortedArrayFuture = pool.submit(new MergeSort(rightArr, pool));
-
-        List<Integer> leftSortedArray = leftSortedArrayFuture.get();
+        // Thread 1
+        List<Integer> leftSortedArray = leftSortedArrayFuture.get(); // T1 is waiting both left and right new threads(t2 and t3) are running
         List<Integer> rightSortedArray = rightSortedArrayFuture.get();
 
         List<Integer> sortedArray = merge(leftSortedArray, rightSortedArray);
@@ -72,3 +73,7 @@ public class MergeSort implements Callable<List<Integer>> {
         return sortedArray;
     }
 }
+
+// List<Integer> mergeSort(List<Integer> arrToSort)
+// {  leftArr, rightArr, mergeSort(left, right), merge them, return }
+//
