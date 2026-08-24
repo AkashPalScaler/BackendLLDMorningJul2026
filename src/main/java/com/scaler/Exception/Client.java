@@ -1,9 +1,10 @@
 package com.scaler.Exception;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class Client {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Calculator calculator = new Calculator();
 
         float val = 0;
