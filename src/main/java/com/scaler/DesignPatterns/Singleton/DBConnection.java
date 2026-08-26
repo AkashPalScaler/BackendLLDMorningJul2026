@@ -1,4 +1,4 @@
-package com.scaler.Singleton;
+package com.scaler.DesignPatterns.Singleton;
 
 public class DBConnection {
     private String url;

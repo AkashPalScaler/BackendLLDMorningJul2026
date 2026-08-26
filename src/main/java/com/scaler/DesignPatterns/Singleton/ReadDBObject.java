@@ -1,6 +1,4 @@
-package com.scaler.Singleton;
-
-import java.io.Serializable;
+package com.scaler.DesignPatterns.Singleton;
 
 public class ReadDBObject implements Runnable{
     @Override

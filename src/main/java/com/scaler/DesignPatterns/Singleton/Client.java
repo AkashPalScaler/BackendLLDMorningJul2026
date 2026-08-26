@@ -1,4 +1,4 @@
-package com.scaler.Singleton;
+package com.scaler.DesignPatterns.Singleton;
 
 import java.util.ArrayList;
 import java.util.List;
